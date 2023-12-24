@@ -30,20 +30,7 @@ namespace GestionBib.Migrations
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
-            migrationBuilder.CreateTable(
-                name: "Livres",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "varchar(255)", nullable: false),
-                    Titre = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
-                    Auteur = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
-                   
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetRoles", x => x.Id);
-                })
-                .Annotation("MySQL:Charset", "utf8mb4");
+         
 
             migrationBuilder.CreateTable(
                 name: "AspNetUsers",

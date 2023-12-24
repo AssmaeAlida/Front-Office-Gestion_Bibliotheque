@@ -1,5 +1,9 @@
-﻿using Gestion_Bib.Models;
+﻿using Gestion_Bib.Data;
+using Gestion_Bib.Models;
 using Microsoft.AspNetCore.Mvc;
+
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging; // Importez le bon namespace pour ILogger
 using System.Diagnostics;
 
 namespace Gestion_Bib.Controllers
@@ -7,14 +11,18 @@ namespace Gestion_Bib.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext context, ILogger<HomeController> logger)
         {
+            _context = context;
             _logger = logger;
         }
 
         public IActionResult Index()
         {
+            var livres = _context.Livres.Select(l => l.Titre).ToList();
+            ViewData["Livres"] = livres;
             return View();
         }
 

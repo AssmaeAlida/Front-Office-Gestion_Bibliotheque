@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+
 }
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> SignInManager
@@ -7,11 +8,50 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
+        <style>
+          #livre {
+            width: 300px; 
+            height: 40px;
+        }
+        </style>
+       
 
-
-        <div class="text-center">
-        <h1>Hello rak dkhltiiii !</h1>
-    </div>
+            <form method="post" action="/Reservation/VerifierEmail">
+                <div>
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" name="nom" required />
+                </div>
+                <div>
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" id="prenom" name="prenom" required />
+                </div>
+                  <div>
+                        <label for="livre">Livre :</label>
+                        <select id="livre" name="livre" required>
+                            <option value="">Sélectionnez un livre</option>
+                            @foreach (var livre in ViewData["Livres"] as List<string>)
+                            {
+                                    <option value="@livre">@livre</option>
+                            }
+                        </select>
+                 </div>
+                <div>
+                    <label for="duree">Durée de réservation :</label>
+                    <input type="duree" id="duree" name="duree" required />
+                </div>
+                <div>
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email" required />
+                </div>
+                <div>
+                    <label for="telephone">Numéro de téléphone :</label>
+                    <input type="tel" id="telephone" name="telephone" required />
+                </div>
+                <div>
+                    <input type="submit" value="Réserver" />
+                </div>
+            </form>
+      
 }
 else
 {
