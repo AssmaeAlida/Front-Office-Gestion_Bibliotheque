@@ -1,8 +1,13 @@
 ﻿<!-- Ajout du code pour la fenêtre modale avec la croix de fermeture -->
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
 @model List<Gestion_Bib.Models.Livre>
-
+ @if (SignInManager.IsSignedIn(User))
+{
 <h1>Liste des Livres</h1>
+<h6> Voici les livres qui sont disponibles ! </h6>
 
 <table class="table">
     <thead>
@@ -40,13 +45,20 @@
                                           </div> 
                                         <input class="inputLastName" type="text" id="prenom" name="prenom" required placeholder="  Votre prenom ici..." />
                                         </div>
+                                   <div>
                                         <div>
-                                      <div> 
-                                        <label class=txtDuree for="duree">Durée de réservation:</label>
-                                       </div>
-                                        <input class="DureeReservation" type="text" id="duree" name="duree" required placeholder="  Votre duree de reservation par jour ici..." />
-                                        </div>
-                                        <div>
+            <label class="txtDuree" for="duree">Durée de réservation :</label>
+        </div>
+        <div>
+            <select class="DureeReservation" id="duree" name="duree" required>
+                <option value="">Sélectionnez la durée de réservation</option>
+                <option value="1">1 jour</option>
+                <option value="2">2 jours</option>
+                <option value="3">3 jours</option>
+                <option value="4">4 jours</option>
+                <option value="5">5 jours</option>
+            </select>
+        </div>
                                     <div>
                                         <label class=txtEmail for="email">Email:</label>
                                         </div>
@@ -71,6 +83,27 @@
 </table>
 
 <style>
+    
+    .h1, h1 {
+        font-size: 2.5rem;
+        color: #6D98ED;
+    }
+        .table {
+        --bs-table-bg: transparent;
+        --bs-table-accent-bg: transparent;
+        --bs-table-striped-color: #212529;
+        --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+        --bs-table-active-color: #212529;
+        --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+        --bs-table-hover-color: #212529;
+        --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #212529;
+        vertical-align: top;
+        border-color: #dee2e6;
+        margin-top: 56px;
+    }
     .txtNom{
             margin-left: 89px;
     }
@@ -194,4 +227,226 @@ margin-left: 90px;
         var modal = document.getElementById("modal_" + livreId);
         modal.style.display = modal.style.display === "none" ? "block" : "none";
     }
-</script>
+    </script>
+}
+else{
+   
+
+    <h1>Liste des Livres</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Auteur</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var livre in Model)
+            {
+                        <tr>
+                            <td>@livre.Titre</td>
+                            <td>@livre.Auteur</td>
+                            <td>
+                                <button class="reserver" onclick="toggleReservationForm(@livre.Id)">Réserver</button>
+                                <div id="modal_@livre.Id" class="modal">
+                                        <div class="modal-content">
+                                            <span class="close" onclick="toggleReservationForm(@livre.Id)">&times;</span>
+                                               <p style="text-align: center; font-weight: bold;">Vous devez être connecté pour effectuer une réservation.</p>
+                                                    <ul>
+                                                <a class="btn-annuler" onclick="toggleReservationForm(@livre.Id)">Annuler</a>
+                                                <a class="btn-toConnect" asp-area="Identity" asp-page="/Account/Login">Se connecter</a>
+                                            </ul>
+                                        </div>
+                                </div>
+                            </td>
+                        </tr>
+            }
+        </tbody>
+    </table>
+
+    <style>
+                .btn-annuler{
+
+        margin-bottom: -45px;
+        width: 153px !important;
+        height: 44px !important;
+        flex-shrink: 0;
+        border-radius: 5px;
+        background: #888e98;
+        box-shadow: 0px 22px 44px 0px rgba(0, 0, 0, 0.05);
+        color: #FFF;
+        font-family: Be Vietnam Pro;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        /* margin-right: 43px; */
+        line-height: normal;
+        display: flex;
+        color: #FFF;
+        font-family: Be Vietnam Pro;
+        font-size: 16px;
+        font-style: normal;
+        /* font-weight: 600; */
+            margin-left: 79px;
+        margin-top: 13px;
+        align-content: center;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+                }
+
+                   .btn-toConnect {
+        width: 153px !important;
+        height: 44px !important;
+        flex-shrink: 0;
+        border-radius: 5px;
+        background: #6D98ED;
+        box-shadow: 0px 22px 44px 0px rgba(0, 0, 0, 0.05);
+        color: #FFF;
+        font-family: Be Vietnam Pro;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        /* margin-right: 43px; */
+        line-height: normal;
+        display: flex;
+        color: #FFF;
+        font-family: Be Vietnam Pro;
+        font-size: 16px;
+        font-style: normal;
+        /* font-weight: 600; */
+            margin-left: 263px;
+        margin-top: -17px;
+        align-content: center;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+        .txtNom{
+                margin-left: 89px;
+        }
+        .txtPrenom{
+                margin-left: 89px;
+        }
+        .txtDuree{
+                margin-left: 89px;
+        }
+        .txtEmail{
+                margin-left: 89px;
+        }
+        .txtTel{
+                margin-left: 89px;
+        }
+        .reserv{
+            margin-top: 31px;
+        margin-left: 318px;
+        }
+        .inputName{
+                   margin-top: 9px;
+    margin-left: 90px;
+        width: 340px;
+        height: 42px;
+                          flex-shrink: 0;
+                          border-radius: 5px;
+                          background: #F3F3F3;
+        }
+        .inputLastName{
+                margin-top: 9px;
+                margin-left: 90px;
+                    width: 340px;
+             height: 42px;
+                          flex-shrink: 0;
+                          border-radius: 5px;
+                          background: #F3F3F3;
+        }
+        .inputEmail{
+                margin-top: 9px;
+               width: 340px;
+        margin-left: 90px;
+        height: 42px;
+                          flex-shrink: 0;
+                          border-radius: 5px;
+                          background: #F3F3F3;
+
+        }
+        .DureeReservation{
+                margin-top: 9px;
+             width: 340px;
+        margin-left: 90px;
+        height: 42px;
+                          flex-shrink: 0;
+                          border-radius: 5px;
+                          background: #F3F3F3;
+        }
+        .NumTel{
+                margin-top: 9px;
+            width: 340px;
+        margin-left: 90px;
+        height: 42px;
+                          flex-shrink: 0;
+                          border-radius: 5px;
+                          background: #F3F3F3;
+        }
+
+        .reserver {
+        width: 109px !important;
+        height: 36px !important;
+        flex-shrink: 0;
+        border-radius: 5px;
+        background: #6D98ED;
+        box-shadow: 0px 22px 44px 0px rgba(0, 0, 0, 0.05);
+        color: #FFF;
+        font-family: Be Vietnam Pro;
+        /* font-size: 17px; */
+        /* font-style: normal; */
+        font-weight: 600px;
+        /* margin-right: 2px; */
+        /* line-height: normal; */
+    }
+        /* Styles pour la fenêtre modale */
+        .modal {
+            display: none; /* Masquer initialement la fenêtre modale */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        function toggleReservationForm(livreId) {
+            var modal = document.getElementById("modal_" + livreId);
+            modal.style.display = modal.style.display === "none" ? "block" : "none";
+        }
+        </script>
+
+}

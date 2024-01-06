@@ -1,6 +1,47 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Politique de confidentialité";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+       h1 {
+    color: #6D98ED;
+}
+        p {
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        /* Ajoutez d'autres styles CSS selon vos besoins */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>@ViewData["Title"]</h1>
+        </header>
+        <p>La bibliothèque MaBiblio attache une grande importance à la confidentialité de vos données personnelles.</p>
+        <p>Nous collectons uniquement les informations nécessaires à la gestion de votre compte utilisateur et à la fourniture de nos services de bibliothèque.</p>
+        <p>Nous protégeons vos données et ne les partageons jamais avec des tiers sans votre consentement explicite.</p>
+        <p>Notre site utilise des cookies pour améliorer l'expérience utilisateur. Vous pouvez les gérer via les paramètres de votre navigateur.</p>
+        <p>Si vous avez des questions ou des préoccupations concernant notre politique de confidentialité, veuillez nous contacter.</p>
+        <p>Merci de votre confiance et de votre fidélité envers la bibliothèque MaBiblio.</p>
+    </div>
+</body>
+</html>

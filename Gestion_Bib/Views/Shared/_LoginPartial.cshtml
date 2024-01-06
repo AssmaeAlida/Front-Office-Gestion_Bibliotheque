@@ -5,7 +5,9 @@
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
-  
+      <li class="nav-item">
+                                <a class="nav-link3 " asp-area="" asp-controller="Historique" asp-action="Historique">Historique</a>
+       </li>
     <li class="nav-item">
         <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
     </li>
@@ -96,4 +98,22 @@ else
             display: flex;
 
      } 
+     .nav-link3 {
+    margin-right: 154px;
+    margin-left: 107px;
+    color: #000;
+    font-family: Be Vietnam Pro;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    /* flex: auto; */
+    /* display: flex; */
+    /* flex-wrap: nowrap; */
+    /* flex-direction: row-reverse; */
+}
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,.55);
+    margin-left: -55px;
+}
 </style>

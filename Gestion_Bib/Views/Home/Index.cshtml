@@ -209,10 +209,31 @@
                             font-weight: 600;
                             line-height: normal;
                 }
+                    /* Style pour centrer le contenu */
+        .welcome-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Hauteur de la vue */
+             background-image: url('/images/R.jpeg'); /* Chemin de votre image de fond */
+            background-size: cover;
+            color: white; /* Couleur du texte */
+            text-align: center;
+                font-size: 19px;
+        }
 
         </style>
        <script>
-
+                  // Fonction pour afficher ou masquer le formulaire de réservation
+            function toggleReservationForm() {
+                var form = document.getElementById('reservationForm');
+                if (form.style.display === 'none') {
+                    form.style.display = 'block';
+                } else {
+                    form.style.display = 'none';
+                }
+            }
                function goToStep1() {
                 $('fieldset').hide();
                 $('fieldset:first').show();
@@ -242,7 +263,14 @@
             });
         
        </script>
+    // Afficher le message de bienvenue
+           <div class="welcome-container">
+        <h1>Bienvenue dans votre compte!</h1>
+        <p>Si vous souhaitez effectuer une réservation, <a href="#" onclick="toggleReservationForm()">cliquez ici</a>.</p>
+    </div>
 
+
+        <div id="reservationForm" style="display: none;">
                 <form method="post" action="/Reservation/VerifierEmail">
         <fieldset>
             <legend></legend>
@@ -279,13 +307,13 @@
                 <div>
                 <label class="labelNom" for="nom">Nom </label>
                     </div>
-                <input class="inputNom" type="text" id="nom" name="nom" required />
+                    <input class="inputNom" type="text" id="nom" name="nom" required placeholder="  Votre nom ici..." />
             </div>
             <div>
                 <div>
                     <label class="labelPrenom" for="prenom">Prénom </label>
                   </div>
-                    <input  class="inputPrenom" type="text" id="prenom" name="prenom" required />
+                        <input  class="inputPrenom" type="text" id="prenom" name="prenom" required placeholder="  Votre prénom ici..."  />
             </div>
                 <input class="btn-suivant" type="button" value="Suivant" onclick="goToStep2()" />
         </fieldset>
@@ -343,12 +371,20 @@
                     }
                 </select>
             </div>
-            <div>
-                <div>
-                <label class="labelDuree" for="duree">Durée de réservation :</label>
-                    </div>
-                <input class="inputDuree"type="duree" id="duree" name="duree" required />
-            </div>
+    <div>
+        <label class="labelDuree" for="duree">Durée de réservation :</label>
+    </div>
+    <div>
+        <select class="inputDuree" id="duree" name="duree" required>
+            <option value="">Sélectionnez la durée de réservation</option>
+            <option value="1">1 jour</option>
+            <option value="2">2 jours</option>
+            <option value="3">3 jours</option>
+            <option value="4">4 jours</option>
+            <option value="5">5 jours</option>
+        </select>
+    </div>
+
                 
             <div>
                  <input class="btn-suivant2" type="button" value="Suivant" onclick="goToStep3()" />
@@ -402,13 +438,13 @@
                 <div>
                 <label class="labelEmail" for="email">Email :</label>
                 </div>
-                <input class="inputEmail" type="email" id="email" name="email" required />
+                    <input class="inputEmail" type="email" id="email" name="email" required placeholder="  Votre adresse-email ici..." />
             </div>
             <div>
                 <div>
                 <label class="labelNum" for="telephone">Numéro de téléphone :</label>
                     </div>
-                <input class="InputNum" type="tel" id="telephone" name="telephone" required />
+                    <input class="InputNum" type="tel" id="telephone" name="telephone" required placeholder="  Votre numero telephone ici..."  />
             </div>
             <input class="btn-reserver" type="submit" value="Réserver" />
         </fieldset>
@@ -417,6 +453,7 @@
               <img class="image" src="/images/Rectangle 6.png" alt="Description de l'image" />
 
     </div>
+          </div>
 }
 else
 
