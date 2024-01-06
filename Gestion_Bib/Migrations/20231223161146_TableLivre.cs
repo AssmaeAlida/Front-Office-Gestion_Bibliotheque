@@ -18,7 +18,7 @@ namespace GestionBib.Migrations
             Id = table.Column<int>(nullable: false)
                 .Annotation("SqlServer:Identity", "1, 1"),
             Titre = table.Column<string>(nullable: true),
-            Auteur = table.Column<string>(nullable: true),
+            Autueur = table.Column<string>(nullable: true),
         },
         constraints: table =>
         {

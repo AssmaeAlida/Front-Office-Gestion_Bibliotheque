@@ -42,8 +42,12 @@ namespace Gestion_Bib.Controllers
 
                 _context.Reservations.Add(reservation);
                 _context.SaveChanges();
-                // Générer le fichier PDF après la réservation
-                byte[] pdfData = GeneratePDF();
+
+                // Obtenez le titre du livre à partir de l'ID du livre
+                var titreLivre = _context.Livres.FirstOrDefault(l => l.Id == livreId)?.Titre;
+
+                // Générer le fichier PDF avec les informations de réservation
+                byte[] pdfData = GeneratePDF(nom, prenom, email, telephone, duree, titreLivre);
 
                 // Envoyer l'e-mail avec le PDF en pièce jointe
                 SendEmailWithAttachment(email, pdfData);
@@ -58,28 +62,75 @@ namespace Gestion_Bib.Controllers
                 return RedirectToAction("Index");
             }
         }
-                
 
-public byte[] GeneratePDF()
-    {
-        // Créer un nouveau document PDF
-        PdfDocument document = new PdfDocument();
-        PdfPage page = document.AddPage();
-        XGraphics gfx = XGraphics.FromPdfPage(page);
 
-        // Dessiner du contenu sur la page
-        XFont font = new XFont("Arial", 12);
-        gfx.DrawString("Contenu du bon de réservation", font, XBrushes.Black, new XRect(0, 0, page.Width, page.Height), XStringFormats.Center);
-
-        // Sauvegarder le document en mémoire
-        using (var memoryStream = new System.IO.MemoryStream())
+        public IActionResult Confirmation()
         {
-            document.Save(memoryStream);
-            return memoryStream.ToArray();
+            return View("Confirmation");
         }
-    }
-    
-public void SendEmailWithAttachment(string recipientEmail, byte[] pdfData)
+        public byte[] GeneratePDF(string nom, string prenom, string email, string telephone, int duree, string titreLivre)
+        {
+            // Créer un nouveau document PDF
+            PdfDocument document = new PdfDocument();
+            PdfPage page = document.AddPage();
+            XGraphics gfx = XGraphics.FromPdfPage(page);
+
+            // Ajouter le logo à droite de la page
+            XImage logo = XImage.FromFile("C:\\Users\\HP\\source\\repos\\Gestion_Bib\\Gestion_Bib\\wwwroot\\images\\195786.png");
+            double logoWidth = 100;
+            double logoHeight = 50;
+            gfx.DrawImage(logo, page.Width - 40 - logoWidth, 40, logoWidth, logoHeight);
+
+            // Titre
+            XFont titleFont = new XFont("Arial", 18, XFontStyle.Bold);
+            gfx.DrawString("Votre réservation a été effectuée avec succès", titleFont, XBrushes.Black, new XRect(40, 100, page.Width - 40 - logoWidth, page.Height), XStringFormats.TopLeft);
+
+            // Tableau pour les informations de réservation
+            XFont tableFont = new XFont("Arial", 12);
+            XBrush headerBrush = XBrushes.DarkBlue;
+            XBrush rowBrush = XBrushes.Black;
+
+            double xPoint = 40, yPoint = 200; // Modifier la valeur de yPoint pour ajuster la position verticale des informations de réservation
+            double columnWidth = 150;
+            double rowHeight = tableFont.GetHeight();
+
+            string[,] reservationData = {
+        { "Nom", nom },
+        { "Prénom", prenom },
+        { "Email", email },
+        { "Téléphone", telephone },
+        { "Durée de réservation", duree.ToString() + " jours" },
+        { "Livre réservé", titreLivre }
+    };
+
+            for (int i = 0; i < reservationData.GetLength(0); i++)
+            {
+                gfx.DrawString(reservationData[i, 0], tableFont, headerBrush, xPoint, yPoint);
+                gfx.DrawString(reservationData[i, 1], tableFont, rowBrush, xPoint + columnWidth, yPoint);
+                yPoint += rowHeight + 10; // Ajouter de l'espace entre les lignes
+            }
+
+            // Ligne de signature
+            XFont signatureFont = new XFont("Arial", 10);
+            gfx.DrawString("Signature : ____________________", signatureFont, XBrushes.Black, new XRect(40, page.Height - 50, page.Width - 40 - logoWidth, page.Height), XStringFormats.BottomLeft);
+
+            // Pied de page
+            XFont footerFont = new XFont("Arial", 8);
+            gfx.DrawString("© 2024 Gestion_Bib. Tous droits réservés.", footerFont, XBrushes.Gray, new XRect(40, page.Height - 20, page.Width - 40 - logoWidth, page.Height), XStringFormats.BottomLeft);
+
+            // Sauvegarder le document en mémoire
+            using (var memoryStream = new System.IO.MemoryStream())
+            {
+                document.Save(memoryStream);
+                return memoryStream.ToArray();
+            }
+        }
+
+
+
+
+
+        public void SendEmailWithAttachment(string recipientEmail, byte[] pdfData)
     {
         // Configuration des informations de messagerie
         string senderEmail = "alidaassmae@gmail.com";

@@ -35,7 +35,7 @@ namespace GestionBib.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Livres");
+                    b.ToTable("Livres", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

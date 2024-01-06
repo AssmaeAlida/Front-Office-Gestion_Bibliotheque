@@ -1,0 +1,68 @@
+﻿
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!-- Confirmation.cshtml -->
+
+@{
+    ViewData["Title"] = "Vérifier votre email";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+
+
+<style>
+       .image {
+                         margin-top: -215px;
+                     margin-left: 748px;
+                    width: 603px;
+                    height: 658px;
+                    flex-shrink: 0;
+                    border-radius: 10px;
+                    background: url(<path-to-image>), #f6f1f1 50% / cover no-repeat;
+                    /* box-shadow: -16px 109px 177px 0px rgba(0, 0, 0, 10.15); */
+
+    }
+    .titreVerification{
+                      margin-top:61px;
+                        color: #000;
+                        font-family: Be Vietnam Pro;
+                        font-size: 31px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+    }
+   /* .paragraphe{
+         color: #000;
+                        font-family: Be Vietnam Pro;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+    }
+    */
+    .paragraphe{
+            margin-top: 51px;
+                line-height: 30px;
+    }
+    .div-verify{
+
+    }
+</style>
+
+<div class="div-verify">
+    <div >
+        <h1 class="titreVerification">Vérifiez votre email conf2</h1>
+    </div>
+        <div class="paragraphe">
+        <p >
+            Un email de confirmation a été envoyé à votre adresse (@UserManager.GetUserAsync(User).Result.Email).<br />
+            Veuillez vérifier votre boîte de réception pour finaliser votre réservation.<br />
+                <a href="mailto:@UserManager.GetUserAsync(User).Result.Email">Cliquez ici pour ouvrir votre boîte e-mail</a>
+        </p>
+        </div>
+  </div>
+ <div >
+              <img class="image" src="/images/Rectangle 6.png" alt="Description de l'image" />
+
+    </div>

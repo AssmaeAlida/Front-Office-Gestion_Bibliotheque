@@ -40,12 +40,39 @@ namespace GestionBib.Migrations
                 name: "IX_Reservations_LivreId",
                 table: "Reservations",
                 column: "LivreId");
+
+            migrationBuilder.DropColumn(
+        name: "DureeReservation",
+        table: "Reservations");
+
+            migrationBuilder.AddColumn<DateTime>(
+                name: "DateEmprunt",
+                table: "Reservations",
+                nullable: false);
+
+            migrationBuilder.AddColumn<DateTime>(
+                name: "DateRetour",
+                table: "Reservations",
+                nullable: false);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Reservations");
+
+            migrationBuilder.DropColumn(
+       name: "DateEmprunt",
+       table: "Reservations");
+
+            migrationBuilder.DropColumn(
+                name: "DateRetour",
+                table: "Reservations");
+
+            migrationBuilder.AddColumn<string>(
+                name: "DureeReservation",
+                table: "Reservations",
+                nullable: true);
         }
     }
 

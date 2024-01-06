@@ -3,16 +3,17 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Gestion_Bib</title>
+    <title>@ViewData["Title"] - MaBiblio</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Gestion_Bib.styles.css" asp-append-version="true" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-transparente border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> Gestion_Bib </a>
+                <a class="titleSite" asp-area="" asp-controller="Home" asp-action="Index"> MaBiblio </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,10 +21,16 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link1 " asp-area="" asp-controller="Home" asp-action="Index">Accueil</a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link2 " asp-area="" asp-controller="Livre" asp-action="ListeLivre">Livres</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link3 " asp-area="" asp-controller="Home" asp-action="Privacy">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link4 " asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
                    <partial name="_LoginPartial" />
@@ -37,9 +44,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted text-center">
         <div class="container">
-            &copy; 2023 - Gestion_Bib - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2024 - MaBiblio - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -48,3 +55,51 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+<style>
+    .titleSite {
+    color: #6D98ED;
+    font-family: Be Vietnam Pro;
+    font-size: 29.09px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-left: 20px;
+    }
+   .nav-link1{
+     margin-left:  164px;
+       color: #000;
+font-family: Be Vietnam Pro;
+font-size: 19px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+   }
+   .nav-link2{
+       margin-left: 117px;
+       color: #000;
+font-family: Be Vietnam Pro;
+font-size: 19px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+   }
+     .nav-link3{
+         margin-left: 117px;
+       color: #000;
+font-family: Be Vietnam Pro;
+font-size: 19px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+   }
+     .nav-link4{
+         margin-left: 117px;
+       color: #000;
+font-family: Be Vietnam Pro;
+font-size: 19px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+   }
+  
+</style>

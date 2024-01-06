@@ -1,0 +1,156 @@
+﻿<!-- Ajout du code pour la fenêtre modale avec la croix de fermeture -->
+
+@model List<Gestion_Bib.Models.Livre>
+
+<h1>Liste des Livres</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var livre in Model)
+        {
+                <tr>
+                    <td>@livre.Titre</td>
+                    <td>@livre.Auteur</td>
+                    <td>
+                        <button class="reserver" onclick="toggleReservationForm(@livre.Id)">Réserver</button>
+                        <div id="modal_@livre.Id" class="modal">
+                            <div class="modal-content">
+                                <span class="close" onclick="toggleReservationForm(@livre.Id)">&times;</span>
+                                <form id="reservationForm_@livre.Id" method="post" action="/Livre/VerifierEmail2">
+                                    <div>
+                                    <input type="hidden" name="livreId" value="@livre.Id" />
+                                        </div>
+                                        <div>
+                                    <label for="nom">Nom:</label>
+                                    <input class="inputName" type="text" id="nom" name="nom" required />
+                                        </div>
+                                        <div>
+                                    <label for="prenom">Prénom:</label>
+                                        <input class="inputLastName" type="text" id="prenom" name="prenom" required />
+                                        </div>
+                                        <div>
+                                    <label for="duree">Durée de réservation:</label>
+                                    <input class="DureeReservation" type="text" id="duree" name="duree" required />
+                                        </div>
+                                        <div>
+                                    <label for="email">Email:</label>
+                                    <input class="inputEmail" type="email" id="email" name="email" required />
+                                        </div>
+                                        <div>
+                                     <label for="telephone">Numéro de téléphone:</label>
+                                     <input class="NumTel" type="text" id="telephone" name="telephone" required />
+                                         </div>
+                                         <div>
+                                        <input class="reserver " type="submit" value="Réserver" />
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    .inputName{
+         margin-left: 89px;
+    width: 340px;
+    height: 42px;
+                      flex-shrink: 0;
+                      border-radius: 5px;
+                      background: #F3F3F3;
+    }
+    .inputLastName{
+            margin-left: 71px;
+                width: 340px;
+         height: 42px;
+                      flex-shrink: 0;
+                      border-radius: 5px;
+                      background: #F3F3F3;
+    }
+    .inputEmail{
+           height: 45px;
+                      flex-shrink: 0;
+                      border-radius: 5px;
+                      background: #F3F3F3;
+
+    }
+    .DureeReservation{
+         height: 45px;
+                      flex-shrink: 0;
+                      border-radius: 5px;
+                      background: #F3F3F3;
+    }
+    .NumTel{
+         height: 45px;
+                      flex-shrink: 0;
+                      border-radius: 5px;
+                      background: #F3F3F3;
+    }
+
+    .reserver {
+    width: 109px !important;
+    height: 36px !important;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: #6D98ED;
+    box-shadow: 0px 22px 44px 0px rgba(0, 0, 0, 0.05);
+    color: #FFF;
+    font-family: Be Vietnam Pro;
+    /* font-size: 17px; */
+    /* font-style: normal; */
+    font-weight: 600px;
+    /* margin-right: 2px; */
+    /* line-height: normal; */
+}
+    /* Styles pour la fenêtre modale */
+    .modal {
+        display: none; /* Masquer initialement la fenêtre modale */
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 600px;
+        position: relative;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    function toggleReservationForm(livreId) {
+        var modal = document.getElementById("modal_" + livreId);
+        modal.style.display = modal.style.display === "none" ? "block" : "none";
+    }
+</script>

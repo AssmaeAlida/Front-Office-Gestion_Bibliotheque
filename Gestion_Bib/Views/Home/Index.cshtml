@@ -10,52 +10,540 @@
 {
         <style>
           #livre {
-            width: 300px; 
-            height: 40px;
+                width: 525px;
+                            height: 45px;
+                            flex-shrink: 0;
+                              border-radius: 5px;
+                            background: #F3F3F3;
         }
-        </style>
-       
+            .labelLivre{
+                     margin-top: 70px;
+                                  margin-bottom: -37px;
+                                color: #7D7D7D;
+                                font-family: Be Vietnam Pro;
+                                    font-size: 14px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: normal;
+            }
 
-            <form method="post" action="/Reservation/VerifierEmail">
+         
+         .fieldset:not(:first-of-type) {
+                display: none;
+            }
+
+             .titreReservation{
+                         margin-top:56px;
+                        color: #000;
+                        font-family: Be Vietnam Pro;
+                        font-size: 31px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                }
+            .SoustitreReservation{
+                       color: #7D7D7D;
+                        font-family: Be Vietnam Pro;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+               }
+              .inputNom{
+                   
+                        width: 525px;
+                        height: 45px;
+                        flex-shrink: 0;
+                          border-radius: 5px;
+                        background: #F3F3F3;
+                   }
+                .inputPrenom{
+                           
+                        width: 525px;
+                        height: 45px;
+                        flex-shrink: 0;
+                        border-radius: 5px;
+                        background: #F3F3F3;
+                }
+                    .labelNom{
+                                margin-top: 70px;
+                              margin-bottom: -37px;
+                            color: #7D7D7D;
+                            font-family: Be Vietnam Pro;
+                                font-size: 14px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: normal;
+                    }
+                        .labelPrenom{
+                                    margin-bottom: -43px;
+                                   margin-top: 54px;
+                                color: #7D7D7D;
+                                font-family: Be Vietnam Pro;
+                                    font-size: 14px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: normal;
+                        }
+                 .image {
+                         margin-top: -544px;
+                     margin-left: 748px;
+                    width: 603px;
+                    height: 658px;
+                    flex-shrink: 0;
+                    border-radius: 10px;
+                    background: url(<path-to-image>), #f6f1f1 50% / cover no-repeat;
+                    /* box-shadow: -16px 109px 177px 0px rgba(0, 0, 0, 10.15); */
+
+    }
+                .btn-suivant{
+                              margin-top: 56px;
+  
+                            width: 525px;
+                            height: 45px;
+                            flex-shrink: 0;
+                            border-radius: 5px;
+                            background: #6D98ED;
+                            box-shadow: 0px 22px 44px 0px rgba(0, 0, 0, 0.05);
+                             color: #FFF;
+                            font-family: Be Vietnam Pro;
+                            font-size: 16px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+
+        }
+        .icon{
+          margin-top: 58px;
+        margin-left: 87px;
+        }
+        .labelDuree{
+                  margin-bottom: -43px;
+                                       margin-top: 54px;
+                                    color: #7D7D7D;
+                                    font-family: Be Vietnam Pro;
+                                        font-size: 14px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: normal;
+        }
+        .inputDuree{
+                   width: 525px;
+                            height: 45px;
+                            flex-shrink: 0;
+                            border-radius: 5px;
+                            background: #F3F3F3;
+        }
+       
+         btn-precedent {
+        margin-bottom: 66px;
+    }
+                        
+          
+                .btn-suivant2{
+                          margin-top: 56px;
+
+                        width: 525px;
+                        height: 45px;
+                        flex-shrink: 0;
+                        border-radius: 5px;
+                        background: #6D98ED;
+                        box-shadow: 0px 22px 44px 0px rgba(0, 0, 0, 0.05);
+                         color: #FFF;
+                        font-family: Be Vietnam Pro;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+
+            }
+            .labelEmail{
+                     margin-top: 70px;
+                                      margin-bottom: -37px;
+                                    color: #7D7D7D;
+                                    font-family: Be Vietnam Pro;
+                                        font-size: 14px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: normal
+            }
+            .inputEmail{
+                      width: 525px;
+                      height: 45px;
+                                flex-shrink: 0;
+                                  border-radius: 5px;
+                                background: #F3F3F3;
+            }
+            .labelNum{
+                       margin-bottom: -43px;
+                                           margin-top: 54px;
+                                        color: #7D7D7D;
+                                        font-family: Be Vietnam Pro;
+                                            font-size: 14px;
+                                        font-style: normal;
+                                        font-weight: 400;
+                                        line-height: normal;
+
+            }
+                .InputNum{
+                      width: 525px;
+                                height: 45px;
+                                flex-shrink: 0;
+                                border-radius: 5px;
+                                background: #F3F3F3;
+
+            }
+                .btn-reserver{
+                         margin-top: 56px;
+
+                            width: 525px;
+                            height: 45px;
+                            flex-shrink: 0;
+                            border-radius: 5px;
+                            background: #6D98ED;
+                            box-shadow: 0px 22px 44px 0px rgba(0, 0, 0, 0.05);
+                             color: #FFF;
+                            font-family: Be Vietnam Pro;
+                            font-size: 16px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                }
+
+        </style>
+       <script>
+
+               function goToStep1() {
+                $('fieldset').hide();
+                $('fieldset:first').show();
+            }
+
+            function goToStep2() {
+                $('fieldset').hide();
+                $('fieldset:nth-of-type(2)').show();
+            }
+
+            function goToStep3() {
+                $('fieldset').hide();
+                $('fieldset:nth-of-type(3)').show();
+            }
+    $(document).ready(function() {
+                // Initialiser le formulaire en affichant seulement l'étape 1
+                $('fieldset:not(:first)').hide();
+
+                // Gérer les clics sur les boutons pour passer d'une étape à l'autre
+                $('input[type="button"][value="Suivant"]').click(function() {
+                    $(this).parent().hide().next().show();
+                });
+
+                $('input[type="button"][value="Précédent"]').click(function() {
+                    $(this).parent().hide().prev().show();
+                });
+            });
+        
+       </script>
+
+                <form method="post" action="/Reservation/VerifierEmail">
+        <fieldset>
+            <legend></legend>
+         <h1 class="titreReservation"> Remplissez se formuler pour votre réservation!</h1>
+            <h6 class="SoustitreReservation">En trois étapes simples et facile!</h6>
+
+            <div class =" icon"> 
+       <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
+      <circle cx="23" cy="23" r="23" fill="#6D98ED"/>
+       
+    </svg>
+
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="99" height="3" viewBox="0 0 99 3" fill="none">
+      <path d="M1 1.5H98" stroke="#DFE8FB" stroke-width="2" stroke-linecap="round"/> 
+    </svg>
+
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
+      <circle cx="23" cy="23" r="23" fill="#6D98ED" fill-opacity="0.22"/>
+    </svg>
+
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="99" height="3" viewBox="0 0 99 3" fill="none">
+      <path d="M1 1.5H98" stroke="#DFE8FB" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
+      <circle cx="23" cy="23" r="23" fill="#6D98ED" fill-opacity="0.22"/>
+    </svg>
+            </div>
+            <div>
                 <div>
-                    <label for="nom">Nom :</label>
-                    <input type="text" id="nom" name="nom" required />
-                </div>
+                <label class="labelNom" for="nom">Nom </label>
+                    </div>
+                <input class="inputNom" type="text" id="nom" name="nom" required />
+            </div>
+            <div>
                 <div>
-                    <label for="prenom">Prénom :</label>
-                    <input type="text" id="prenom" name="prenom" required />
+                    <label class="labelPrenom" for="prenom">Prénom </label>
+                  </div>
+                    <input  class="inputPrenom" type="text" id="prenom" name="prenom" required />
+            </div>
+                <input class="btn-suivant" type="button" value="Suivant" onclick="goToStep2()" />
+        </fieldset>
+        <fieldset>
+            <legend></legend>
+                              <div>
+                <!-- Utilisation de l'icône SVG à la place du bouton -->
+                <button class="btn-precedent" onclick="goToStep1()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+                        <path d="M35 17.5C35 20.9612 33.9736 24.3446 32.0507 27.2225C30.1278 30.1003 27.3947 32.3433 24.197 33.6679C20.9993 34.9924 17.4806 35.339 14.0859 34.6637C10.6913 33.9885 7.57306 32.3218 5.12564 29.8744C2.67822 27.4269 1.01151 24.3087 0.336266 20.9141C-0.338978 17.5194 0.00758362 14.0007 1.33212 10.803C2.65665 7.60533 4.89967 4.87221 7.77753 2.94928C10.6554 1.02636 14.0388 0 17.5 0C22.1413 0 26.5925 1.84374 29.8744 5.12563C33.1563 8.40752 35 12.8587 35 17.5ZM27.5 17.5C27.5 16.8096 26.9404 16.25 26.25 16.25H15.32C14.2078 16.25 13.6495 14.9066 14.434 14.1182L18.3969 10.1362C18.8872 9.64347 18.881 8.84529 18.3831 8.36026C17.8935 7.88334 17.1115 7.88846 16.6282 8.37176L8.38389 16.6161C7.89573 17.1043 7.89573 17.8957 8.38389 18.3839L16.617 26.617C17.1048 27.1048 17.9042 27.0966 18.3925 26.6093C18.8818 26.1211 18.8906 25.3199 18.4016 24.8314L14.4496 20.8844C13.6614 20.0972 14.2189 18.75 15.333 18.75H26.25C26.9404 18.75 27.5 18.1904 27.5 17.5Z" fill="#6D98ED"/>
+                    </svg>
+                </button>
+            </div>
+                <h1 class="titreReservation"> Remplissez se formuler pour votre réservation!</h1>
+                <h6 class="SoustitreReservation">En trois étapes simples et facile!</h6>
+
+
+
+                <div class =" icon"> 
+           <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
+          <circle cx="23" cy="23" r="23" fill="#6D98ED"/>
+
+        </svg>
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="99" height="3" viewBox="0 0 99 3" fill="none">
+      <path d="M1 1.5H98" stroke="#6D98ED" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+
+
+              <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
+      <circle cx="23" cy="23" r="23" fill="#6D98ED"/>
+    </svg>
+
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="99" height="3" viewBox="0 0 99 3" fill="none">
+          <path d="M1 1.5H98" stroke="#DFE8FB" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
+          <circle cx="23" cy="23" r="23" fill="#6D98ED" fill-opacity="0.22"/>
+        </svg>
                 </div>
-                  <div>
-                        <label for="livre">Livre :</label>
-                        <select id="livre" name="livre" required>
-                            <option value="">Sélectionnez un livre</option>
-                            @foreach (var livre in ViewData["Livres"] as List<string>)
-                            {
-                                    <option value="@livre">@livre</option>
-                            }
-                        </select>
-                 </div>
+
                 <div>
-                    <label for="duree">Durée de réservation :</label>
-                    <input type="duree" id="duree" name="duree" required />
-                </div>
+                    <div>
+                <label class="labelLivre" for="livre">Livre :</label>
+                    </div>
+                <select id="livre" name="livre" required>
+                    <option value="">Sélectionnez un livre</option>
+                    @foreach (var livre in ViewData["Livres"] as List<string>)
+                    {
+                                <option value="@livre">@livre</option>
+                    }
+                </select>
+            </div>
+            <div>
                 <div>
-                    <label for="email">Email :</label>
-                    <input type="email" id="email" name="email" required />
+                <label class="labelDuree" for="duree">Durée de réservation :</label>
+                    </div>
+                <input class="inputDuree"type="duree" id="duree" name="duree" required />
+            </div>
+                
+            <div>
+                 <input class="btn-suivant2" type="button" value="Suivant" onclick="goToStep3()" />
+
+            </div>
+        </fieldset>
+        
+        <fieldset>
+            <legend></legend>
+                      <div>
+                    <!-- Utilisation de l'icône SVG à la place du bouton -->
+                    <button class="btn-precedent" onclick="goToStep1()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+                            <path d="M35 17.5C35 20.9612 33.9736 24.3446 32.0507 27.2225C30.1278 30.1003 27.3947 32.3433 24.197 33.6679C20.9993 34.9924 17.4806 35.339 14.0859 34.6637C10.6913 33.9885 7.57306 32.3218 5.12564 29.8744C2.67822 27.4269 1.01151 24.3087 0.336266 20.9141C-0.338978 17.5194 0.00758362 14.0007 1.33212 10.803C2.65665 7.60533 4.89967 4.87221 7.77753 2.94928C10.6554 1.02636 14.0388 0 17.5 0C22.1413 0 26.5925 1.84374 29.8744 5.12563C33.1563 8.40752 35 12.8587 35 17.5ZM27.5 17.5C27.5 16.8096 26.9404 16.25 26.25 16.25H15.32C14.2078 16.25 13.6495 14.9066 14.434 14.1182L18.3969 10.1362C18.8872 9.64347 18.881 8.84529 18.3831 8.36026C17.8935 7.88334 17.1115 7.88846 16.6282 8.37176L8.38389 16.6161C7.89573 17.1043 7.89573 17.8957 8.38389 18.3839L16.617 26.617C17.1048 27.1048 17.9042 27.0966 18.3925 26.6093C18.8818 26.1211 18.8906 25.3199 18.4016 24.8314L14.4496 20.8844C13.6614 20.0972 14.2189 18.75 15.333 18.75H26.25C26.9404 18.75 27.5 18.1904 27.5 17.5Z" fill="#6D98ED"/>
+                        </svg>
+                    </button>
                 </div>
+                    <h1 class="titreReservation"> Remplissez se formuler pour votre réservation!</h1>
+                    <h6 class="SoustitreReservation">En trois étapes simples et facile!</h6>
+
+
+
+                    <div class =" icon"> 
+               <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
+              <circle cx="23" cy="23" r="23" fill="#6D98ED"/>
+
+            </svg>
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="99" height="3" viewBox="0 0 99 3" fill="none">
+          <path d="M1 1.5H98" stroke="#6D98ED" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+
+
+                  <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
+          <circle cx="23" cy="23" r="23" fill="#6D98ED"/>
+        </svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="99" height="3" viewBox="0 0 99 3" fill="none">
+              <path d="M1 1.5H98" stroke="#6D98ED" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+
+
+                      <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
+              <circle cx="23" cy="23" r="23" fill="#6D98ED"/>
+            </svg>
+          </div>
+            <div>
                 <div>
-                    <label for="telephone">Numéro de téléphone :</label>
-                    <input type="tel" id="telephone" name="telephone" required />
+                <label class="labelEmail" for="email">Email :</label>
                 </div>
+                <input class="inputEmail" type="email" id="email" name="email" required />
+            </div>
+            <div>
                 <div>
-                    <input type="submit" value="Réserver" />
-                </div>
-            </form>
-      
+                <label class="labelNum" for="telephone">Numéro de téléphone :</label>
+                    </div>
+                <input class="InputNum" type="tel" id="telephone" name="telephone" required />
+            </div>
+            <input class="btn-reserver" type="submit" value="Réserver" />
+        </fieldset>
+    </form>
+      <div >
+              <img class="image" src="/images/Rectangle 6.png" alt="Description de l'image" />
+
+    </div>
 }
 else
+
 {
-           <div class="text-center">
-        <h1>Hello !</h1>
+              <style>
+        .background-img {
+            width: 1473px;
+            height: 983px;
+            margin-left: -89px;
+            margin-top: -16px;
+            background-image: url('/images/backgound.jpeg');
+            background-size: cover;
+            text-align: center;
+            padding-top: 200px; /* Ajustez la valeur pour placer le texte à la bonne hauteur */
+        }
+
+        .title {
+            color: white; /* Ajoutez cette ligne pour changer la couleur du texte si nécessaire */
+        }
+            .seconnecter{
+                         width: 164px !important;
+                height: 44px !important;
+                flex-shrink: 0;
+                border-radius: 5px;
+                    background: #24272f;
+                box-shadow: 0px 22px 44px 0px rgba(0, 0, 0, 0.05);
+                color: #FFF;
+                font-family: Be Vietnam Pro;
+                font-size: 17px;
+                font-style: normal;
+                font-weight: 600;
+                margin-right: 20px;
+                line-height: normal;
+               margin-top: 68px;
+             
+            }
+                .LivreImage{
+                            height: 434px;
+
+                }
+                    .LivreImage1{
+                                                              height: 434px;
+                                  height: 434px;
+
+                    }
+                        .LivreImage2{
+                        
+                                height: 434px;
+
+                    }
+                        .cardsLivre{
+                            margin-top:104px;
+                        }
+    </style>
+
+    <div class="background-img">
+        <div class="title">
+            <h1>Découvrez votre bibliothèque!<br> Et plongez dans le monde des livres.</h1>
+            <button class="seconnecter" onclick="window.location.href='/Identity/Account/Login'">Se connecter</button>
+
+        </div>
     </div>
+
+    <div class="cardsLivre">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card h-100">
+                  <img class="LivreImage" src="/images/OIP.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Antigone</h5>
+            <p class="card-text">
+                    "Antigone" est une pièce de théâtre tragique écrite par le dramaturge grec Sophocle vers 441 av. J.-C. Elle est considérée comme l'une des plus grandes tragédies de la littérature occidentale et fait partie des œuvres classiques les plus étudiées dans le monde.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+                      <img class="LivreImage1" src="/images/OIP (1).jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">La boite à merveilles</h5>
+                <p class="card-text">La Boîte à Merveilles" est un roman écrit par l'écrivain marocain Ahmed Sefrioui, publié pour la première fois en 1954. Ce livre est considéré comme un classique de la littérature marocaine francophone.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+                      <img class="LivreImage2"src="/images/OIP (2).jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Les misérables</h5>
+                <p class="card-text">"Les Misérables" est un célèbre roman de l'écrivain français Victor Hugo, publié en 1862. Il s'agit d'une œuvre emblématique de la littérature française et mondiale, souvent considérée comme l'un des chefs-d'œuvre de la littérature du XIXe siècle. </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+                  <img class="LivreImage2" src="/images/CVT_Gardiens-des-Cites-perdues-tome-4-Les-invisibles_9736.png" class="card-img-top" alt="...">
+          <div class="card-body">
+                <h5 class="card-title">Gardiens des cités perdues, tome 4 : Les invisibles</h5>
+                <p class="card-text">
+    7. Gardiens des cités perdues, tome 4 : Les invisibles
+    Shannon Messenger
+    4.59★ (2858)
+
+    aventure roman d'aventure roman fantasy fantastique littérature jeunesse jeunesse jeune adulte magie amitié pouvoir action mystère fantaisie elfes science-fiction amour romance adolescence littérature américaine.</p>
+          </div>
+        </div>
+      </div>
+          <div class="col">
+            <div class="card h-100">
+                      <img class="LivreImage2" src="/images/CVT_-la-recherche-du-temps-perdu--Integrale_1851.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                    <h5 class="card-title"> À la recherche du temps perdu - Intégrale</h5>
+                    <p class="card-text">littérature roman classique fiction quête art jalousie romanesque douceur langueur ouvrage primé oeuvre posthume théorie france littérature francophone littérature française français classique français 20ème siècle littérature contemporaine.</p>
+              </div>
+            </div>
+          </div>
+              <div class="col">
+            <div class="card h-100">
+                      <img class="LivreImage2"src="/images/couv63652087.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                    <h5 class="card-title">Just wanna be your brother</h5>
+                    <p class="card-text">jeune adulte roman d'amour deuil amitié drame histoires de vie favorite amour romance new romance adolescence littérature française.</p>
+              </div>
+            </div>
+          </div>
+    </div>
+   </div>
+
 }
