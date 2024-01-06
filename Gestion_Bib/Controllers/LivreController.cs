@@ -28,9 +28,9 @@ namespace Gestion_Bib.Controllers
         // Action pour gérer la réservation
 
         [HttpPost]
-        public IActionResult VerifierEmail2(string nom, string prenom, string titreLivre, int duree, string email, string telephone)
+        public IActionResult VerifierEmail2(string nom, string prenom, int livreId, int duree, string email, string telephone)
         {
-            var livre = _context.Livres.FirstOrDefault(l => l.Titre == titreLivre);
+            var livre = _context.Livres.FirstOrDefault(l => l.Id == livreId); // Récupérer le livre par son ID
 
             if (livre != null)
             {
@@ -41,16 +41,16 @@ namespace Gestion_Bib.Controllers
                     EmailReservateur = email,
                     NumeroTelephone = telephone,
                     DureeReservation = duree,
-                    Livre = livre // Ajout du livre trouvé
+                    LivreId = livre.Id // Enregistrer l'ID du livre dans la réservation
                 };
 
                 _context.Reservations.Add(reservation);
                 _context.SaveChanges();
 
-                // Générer le fichier PDF après la réservation
-                byte[] pdfData = GeneratePDF();
+                // Générer le PDF avec les informations de réservation
+                byte[] pdfData = GenerateReservationPDF();
 
-                // Envoyer l'e-mail avec le PDF en pièce jointe
+                // Envoyer l'email avec le PDF en pièce jointe
                 SendEmailWithAttachment(email, pdfData);
 
                 // Redirection ou retourner une vue de confirmation
@@ -63,13 +63,11 @@ namespace Gestion_Bib.Controllers
             }
         }
 
-
         public IActionResult Confirmation()
         {
             return View("Confirmation2");
         }
-
-        public byte[] GeneratePDF()
+        public byte[] GenerateReservationPDF()
         {
             // Créer un nouveau document PDF
             PdfDocument document = new PdfDocument();
