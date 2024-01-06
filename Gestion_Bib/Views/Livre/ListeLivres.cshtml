@@ -28,26 +28,37 @@
                                     <input type="hidden" name="livreId" value="@livre.Id" />
                                         </div>
                                         <div>
-                                    <label for="nom">Nom:</label>
-                                    <input class="inputName" type="text" id="nom" name="nom" required />
+                                    <div>
+  
+                                        <label class=txtNom for="nom">Nom:</label>
+                                       </div>
+                                        <input class="inputName" type="text" id="nom" name="nom" required placeholder="  Votre nom ici..." />
                                         </div>
                                         <div>
-                                    <label for="prenom">Prénom:</label>
-                                        <input class="inputLastName" type="text" id="prenom" name="prenom" required />
+                                            <div>
+                                    <label class=txtPrenom for="prenom">Prénom:</label>
+                                          </div> 
+                                        <input class="inputLastName" type="text" id="prenom" name="prenom" required placeholder="  Votre prenom ici..." />
                                         </div>
                                         <div>
-                                    <label for="duree">Durée de réservation:</label>
-                                    <input class="DureeReservation" type="text" id="duree" name="duree" required />
+                                      <div> 
+                                        <label class=txtDuree for="duree">Durée de réservation:</label>
+                                       </div>
+                                        <input class="DureeReservation" type="text" id="duree" name="duree" required placeholder="  Votre duree de reservation par jour ici..." />
                                         </div>
                                         <div>
-                                    <label for="email">Email:</label>
-                                    <input class="inputEmail" type="email" id="email" name="email" required />
+                                    <div>
+                                        <label class=txtEmail for="email">Email:</label>
+                                        </div>
+                                        <input class="inputEmail" type="email" id="email" name="email" required placeholder="  Votre email ici..." />
                                         </div>
                                         <div>
-                                     <label for="telephone">Numéro de téléphone:</label>
-                                     <input class="NumTel" type="text" id="telephone" name="telephone" required />
+                                     <div>
+                                         <label class=txtTel for="telephone">Numéro de téléphone:</label>
+                                        </div>
+                                         <input class="NumTel" type="text" id="telephone" name="telephone" required placeholder="  Votre email ici..."/>
                                          </div>
-                                         <div>
+                                         <div class="reserv">
                                         <input class="reserver " type="submit" value="Réserver" />
                                         </div>
                                 </form>
@@ -60,8 +71,28 @@
 </table>
 
 <style>
+    .txtNom{
+            margin-left: 89px;
+    }
+    .txtPrenom{
+            margin-left: 89px;
+    }
+    .txtDuree{
+            margin-left: 89px;
+    }
+    .txtEmail{
+            margin-left: 89px;
+    }
+    .txtTel{
+            margin-left: 89px;
+    }
+    .reserv{
+        margin-top: 31px;
+    margin-left: 318px;
+    }
     .inputName{
-         margin-left: 89px;
+               margin-top: 9px;
+margin-left: 90px;
     width: 340px;
     height: 42px;
                       flex-shrink: 0;
@@ -69,7 +100,8 @@
                       background: #F3F3F3;
     }
     .inputLastName{
-            margin-left: 71px;
+            margin-top: 9px;
+            margin-left: 90px;
                 width: 340px;
          height: 42px;
                       flex-shrink: 0;
@@ -77,20 +109,29 @@
                       background: #F3F3F3;
     }
     .inputEmail{
-           height: 45px;
+            margin-top: 9px;
+           width: 340px;
+    margin-left: 90px;
+    height: 42px;
                       flex-shrink: 0;
                       border-radius: 5px;
                       background: #F3F3F3;
 
     }
     .DureeReservation{
-         height: 45px;
+            margin-top: 9px;
+         width: 340px;
+    margin-left: 90px;
+    height: 42px;
                       flex-shrink: 0;
                       border-radius: 5px;
                       background: #F3F3F3;
     }
     .NumTel{
-         height: 45px;
+            margin-top: 9px;
+        width: 340px;
+    margin-left: 90px;
+    height: 42px;
                       flex-shrink: 0;
                       border-radius: 5px;
                       background: #F3F3F3;

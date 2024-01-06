@@ -26,13 +26,13 @@ namespace Gestion_Bib.Controllers
         }
 
         // Action pour gérer la réservation
-        
-        [HttpPost]
-        public IActionResult VerifierEmail2(string nom, string prenom, string livre, int duree, string email, string telephone)
-        {
-            var livreId = _context.Livres.FirstOrDefault(l => l.Titre == livre)?.Id;
 
-            if (livreId != null)
+        [HttpPost]
+        public IActionResult VerifierEmail2(string nom, string prenom, string titreLivre, int duree, string email, string telephone)
+        {
+            var livre = _context.Livres.FirstOrDefault(l => l.Titre == titreLivre);
+
+            if (livre != null)
             {
                 var reservation = new Reservation
                 {
@@ -41,7 +41,7 @@ namespace Gestion_Bib.Controllers
                     EmailReservateur = email,
                     NumeroTelephone = telephone,
                     DureeReservation = duree,
-                    LivreId = (int)livreId
+                    Livre = livre // Ajout du livre trouvé
                 };
 
                 _context.Reservations.Add(reservation);
@@ -54,14 +54,15 @@ namespace Gestion_Bib.Controllers
                 SendEmailWithAttachment(email, pdfData);
 
                 // Redirection ou retourner une vue de confirmation
-                return RedirectToAction("Confirmation2");
+                return RedirectToAction("Confirmation");
             }
             else
             {
                 // Gérer le cas où le livre n'est pas trouvé
-                return RedirectToAction("ListeLivre");
+                return RedirectToAction("ListeLivres");
             }
         }
+
 
         public IActionResult Confirmation()
         {
