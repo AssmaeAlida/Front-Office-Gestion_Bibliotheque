@@ -8,7 +8,10 @@
 {
 <h1>Liste des Livres</h1>
 <h6> Voici les livres qui sont disponibles ! </h6>
-
+  <div>  
+      <h7 class="titreSearch">Recherche :<h7>
+        <input class="txt-Search" type="text" id="searchInput" oninput="searchBooks()" placeholder="Entrez le titre du livre...">
+     </div>
 <table class="table">
     <thead>
         <tr>
@@ -47,19 +50,19 @@
                                         </div>
                                    <div>
                                         <div>
-            <label class="txtDuree" for="duree">Durée de réservation :</label>
-        </div>
-        <div>
-            <select class="DureeReservation" id="duree" name="duree" required>
-                <option value="">Sélectionnez la durée de réservation</option>
-                <option value="1">1 jour</option>
-                <option value="2">2 jours</option>
-                <option value="3">3 jours</option>
-                <option value="4">4 jours</option>
-                <option value="5">5 jours</option>
-            </select>
-        </div>
-                                    <div>
+                                            <label class="txtDuree" for="duree">Durée de réservation :</label>
+                                        </div>
+                                        <div>
+                                            <select class="DureeReservation" id="duree" name="duree" required>
+                                                <option value="">Sélectionnez la durée de réservation</option>
+                                                <option value="1">1 jour</option>
+                                                <option value="2">2 jours</option>
+                                                <option value="3">3 jours</option>
+                                                <option value="4">4 jours</option>
+                                                <option value="5">5 jours</option>
+                                            </select>
+                                        </div>
+                                                                    <div>
                                         <label class=txtEmail for="email">Email:</label>
                                         </div>
                                         <input class="inputEmail" type="email" id="email" name="email" required placeholder="  Votre email ici..." />
@@ -81,14 +84,55 @@
         }
     </tbody>
 </table>
+    <script>
+        function searchBooks() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.querySelector(".table");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0]; // Index 0 pour la colonne du titre
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 
 <style>
-    
+          .txt-Search {
+        /* margin-left: 746px; */
+        margin-top: -35px;
+        width: 264px;
+        height: 32px;
+        flex-shrink: 0;
+        border-radius: 5px;
+        background: #d4ddef;
+        box-shadow: 0px 22px 44px 0px rgba(0, 0, 0, 0.05);
+            color: #000;
+        font-family: Be Vietnam Pro;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+                   .titreSearch {
+            margin-left: 924px;
+            margin-right: 20px;
+        }
     .h1, h1 {
         font-size: 2.5rem;
         color: #6D98ED;
     }
         .table {
+    
         --bs-table-bg: transparent;
         --bs-table-accent-bg: transparent;
         --bs-table-striped-color: #212529;
@@ -102,7 +146,7 @@
         color: #212529;
         vertical-align: top;
         border-color: #dee2e6;
-        margin-top: 56px;
+        margin-top: 64px;
     }
     .txtNom{
             margin-left: 89px;
@@ -232,7 +276,12 @@ margin-left: 90px;
 else{
    
 
-    <h1>Liste des Livres</h1>
+       <h1>Liste des Livres</h1>
+    <h6> Voici les livres qui sont disponibles ! </h6>
+      <div>  
+          <h7 class="titreSearch">Recherche :<h7>
+            <input class="txt-Search" type="text" id="searchInput" oninput="searchBooks()" placeholder="Entrez le titre du livre...">
+         </div>
 
     <table class="table">
         <thead>
@@ -265,8 +314,68 @@ else{
             }
         </tbody>
     </table>
+        <script>
+            function searchBooks() {
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("searchInput");
+                filter = input.value.toUpperCase();
+                table = document.querySelector(".table");
+                tr = table.getElementsByTagName("tr");
 
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[0]; // Index 0 pour la colonne du titre
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+        </script>
     <style>
+                  .txt-Search {
+        /* margin-left: 746px; */
+        margin-top: -35px;
+        width: 264px;
+        height: 32px;
+        flex-shrink: 0;
+        border-radius: 5px;
+        background: #d4ddef;
+        box-shadow: 0px 22px 44px 0px rgba(0, 0, 0, 0.05);
+            color: #000;
+        font-family: Be Vietnam Pro;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+              .titreSearch {
+        margin-left: 924px;
+        margin-right: 20px;
+    }
+        .h1, h1 {
+            font-size: 2.5rem;
+            color: #6D98ED;
+        }
+            .table {
+        margin-top: 32px;
+        --bs-table-bg: transparent;
+        --bs-table-accent-bg: transparent;
+        --bs-table-striped-color: #212529;
+        --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+        --bs-table-active-color: #212529;
+        --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+        --bs-table-hover-color: #212529;
+        --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #212529;
+        vertical-align: top;
+        border-color: #dee2e6;
+    }
                 .btn-annuler{
 
         margin-bottom: -45px;
