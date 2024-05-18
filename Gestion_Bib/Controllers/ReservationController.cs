@@ -134,7 +134,7 @@ namespace Gestion_Bib.Controllers
     {
         // Configuration des informations de messagerie
         string senderEmail = "alidaassmae@gmail.com";
-        string senderPassword = "zdlgnhcjwwhbyrek";
+        string senderPassword = "*************";
         string subject = "Bon de réservation";
         string body = "Merci pour votre réservation! Veuillez trouver ci-joint votre bon de réservation.";
 
