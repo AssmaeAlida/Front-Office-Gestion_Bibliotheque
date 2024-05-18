@@ -59,7 +59,7 @@ Ce projet de gestion de bibliothèque est conçu pour permettre aux adhérents d
 Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
 ## Auteurs
-- **Assmae A1lida* - *Développeur Principal* - https://github.com/AssmaeAlida .
+- **Assmae Alida* - *Développeur Principal* - https://github.com/AssmaeAlida .
 
 ---
 
